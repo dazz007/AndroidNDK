@@ -9,7 +9,7 @@ public class MainActivity extends Activity {
 
 	// load the library - name matches jni/Android.mk 
 	  static {
-	    System.loadLibrary("ndkfoo");
+	    System.loadLibrary("diffieHellman");
 	  }
 	   
 	  // declare the native code function - must match ndkfoo.c
