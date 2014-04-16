@@ -1,0 +1,7 @@
+20:02:31 **** Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+
+20:02:32 Build Finished (took 1s.8ms)
+

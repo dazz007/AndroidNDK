@@ -1,0 +1,14 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using Cryptopp::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+	//Automaticly Seeded Randomness Pool.
+	//This class seeds itself using an operating system provided RNG.
+	AutoSeededRandomPool rnd;
+	this->dh.AccessGroupParameters().Initialize(this->p, this->q, this->g);
+	this->privateKey(dh.PrivateKeyLength());
+	this->publicKey(dh.PublicKeyLength());
+	this->dh.GenerateKeyPair(rnd, privateKey, publicKey);
+}

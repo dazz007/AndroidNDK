@@ -1,15 +1,32 @@
 package com.example.androidake;
 
+import java.io.UnsupportedEncodingException;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
+	public MutualAuthenticateChip mac;
+	private TextView textView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		mac = new MutualAuthenticateChip();
+		mac.prepare_MAC_CPP();
+		byte[] result = mac.get_ephemeralkey_CPP();
+		// String result_str = result.toString();
+		String str = "";
+		try {
+			str = new String(result, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		textView.setText(str);
+		setContentView(textView);
+//		setContentView(R.layout.activity_main);
 	}
 
 	@Override

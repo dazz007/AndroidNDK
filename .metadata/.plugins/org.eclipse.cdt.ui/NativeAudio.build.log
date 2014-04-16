@@ -1,0 +1,6 @@
+22:09:38 **** Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+make.exe: *** No rule to make target `jni/native-audio-jni.c', needed by `obj/local/armeabi/objs/native-audio-jni/native-audio-jni.o'.  Stop.
+
+22:09:38 Build Finished (took 348ms)
+

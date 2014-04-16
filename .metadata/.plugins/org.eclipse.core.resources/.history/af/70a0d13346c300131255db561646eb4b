@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+#include "cryptopp/secblock.h"
+using CryptoPP::SecByteBlock;
+
+
+class MutualAuthenticationChip{
+private:
+
+
+};

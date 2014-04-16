@@ -1,0 +1,12 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using Cryptopp::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+	//Automaticly Seeded Randomness Pool.
+	//This class seeds itself using an operating system provided RNG.
+	AutoSeededRandomPool rnd;
+	this->dh
+
+}

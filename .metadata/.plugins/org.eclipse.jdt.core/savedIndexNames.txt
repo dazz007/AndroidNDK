@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+E:\GitHub\AndroidNDK\.metadata\.plugins\org.eclipse.jdt.core
+3304319272.index
+1846258469.index
+3524558310.index
+3421753971.index
+1844695576.index

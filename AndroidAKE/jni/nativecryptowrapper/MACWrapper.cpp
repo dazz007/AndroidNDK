@@ -1,16 +1,24 @@
 #include "include/MACWrapper.h"
+#include "mac/MutualAuthenticationChip.h"
 
+static MutualAuthenticationChip mac(10);
 
 JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepare_1MAC_1CPP
   (JNIEnv *env, jobject thisObj){
-
-
+	mac.dupa();
+	mac.GenerateKeyPairs();
+	mac.GenerateEphemeralKeys();
 };
 
 
 JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_get_1ephemeralkey_1CPP
   (JNIEnv *env, jobject thisObj){
-	jbyteArray ephemeralkey_byte;
+
+	int length = mac.GetKeySize();
+	byte * ephemeralKey = mac.GetEphemeralPublicKey();
+
+	jbyteArray ephemeralkey_byte = env->NewByteArray(length);
+	env->SetByteArrayRegion(ephemeralkey_byte, 0, length, (jbyte*)ephemeralKey);
 
 	return ephemeralkey_byte;
 };

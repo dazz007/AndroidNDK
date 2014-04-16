@@ -1,0 +1,9 @@
+package com.example.androidake;
+
+public class MutualAuthenticateChip {
+	
+	static {
+		System.loadLibrary("nativecryptowrapper");
+	}
+	
+}

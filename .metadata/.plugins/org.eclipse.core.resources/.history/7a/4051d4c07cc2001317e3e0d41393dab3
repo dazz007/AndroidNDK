@@ -1,0 +1,11 @@
+package com.example.androidake;
+
+public class MutualAuthenticateChip {
+	
+	static {
+		System.loadLibrary("nativecryptowrapper"); // "myjni.dll" in Windows,
+													// "libmyjni.so" in Unixes
+		// System.loadLibrary("cryptopp");
+	}
+	
+}

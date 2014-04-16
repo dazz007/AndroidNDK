@@ -1,0 +1,95 @@
+21:27:58 **** Build of configuration Default for project TestJNIPrimitive ****
+make all 
+g++ -m64 -I"C:\Program Files\Java\jdk1.7.0_45\include" -I"C:\Program Files\Java\jdk1.7.0_45\include\win32" -c TestJNIPrimitive.cpp -o TestJNIPrimitive.o
+g++ -Wl,--add-stdcall-alias -shared -o myjni.dll TestJNIPrimitive.o
+21:30:12 **** Incremental Build of configuration Default for project TestJNIPrimitive ****
+make all 
+make: *** No rule to make target `all'.  Stop.
+23:05:29 **** Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+[armeabi] Compile thumb  : native-audio-jni <= native-audio-jni.c
+[armeabi] SharedLibrary  : libnative-audio-jni.so
+[armeabi] Install        : libnative-audio-jni.so => libs/armeabi/libnative-audio-jni.so
+23:33:20 **** Incremental Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+make.exe: *** No rule to make target `jni/native-audio-jni.c', needed by `obj/local/armeabi/objs/native-audio-jni/native-audio-jni.o'.  Stop.
+23:33:42 **** Incremental Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+make.exe: *** No rule to make target `jni/native-audio-jni.c', needed by `obj/local/armeabi/objs/native-audio-jni/native-audio-jni.o'.  Stop.
+23:42:49 **** Incremental Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+make.exe: *** No rule to make target `jni/native-audio-jni.c', needed by `obj/local/armeabi/objs/native-audio-jni/native-audio-jni.o'.  Stop.
+22:09:20 **** Build of configuration Default for project AndroidTrening ****
+make all 
+make: *** No rule to make target `all'.  Stop.
+22:09:21 **** Build of configuration Default for project HelloJni ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 10 in ./AndroidManifest.xml    
+[armeabi-v7a] Gdbserver      : [arm-linux-androideabi-4.6] libs/armeabi-v7a/gdbserver
+[armeabi-v7a] Gdbsetup       : libs/armeabi-v7a/gdb.setup
+[armeabi] Gdbserver      : [arm-linux-androideabi-4.6] libs/armeabi/gdbserver
+[armeabi] Gdbsetup       : libs/armeabi/gdb.setup
+[x86] Gdbserver      : [x86-4.6] libs/x86/gdbserver
+[x86] Gdbsetup       : libs/x86/gdb.setup
+[mips] Gdbserver      : [mipsel-linux-android-4.6] libs/mips/gdbserver
+[mips] Gdbsetup       : libs/mips/gdb.setup
+[armeabi-v7a] Compile thumb  : hello-jni <= hello-jni.c
+[armeabi-v7a] SharedLibrary  : libhello-jni.so
+[armeabi-v7a] Install        : libhello-jni.so => libs/armeabi-v7a/libhello-jni.so
+[armeabi] Compile thumb  : hello-jni <= hello-jni.c
+[armeabi] SharedLibrary  : libhello-jni.so
+[armeabi] Install        : libhello-jni.so => libs/armeabi/libhello-jni.so
+[x86] Compile        : hello-jni <= hello-jni.c
+[x86] SharedLibrary  : libhello-jni.so
+[x86] Install        : libhello-jni.so => libs/x86/libhello-jni.so
+[mips] Compile        : hello-jni <= hello-jni.c
+[mips] SharedLibrary  : libhello-jni.so
+[mips] Install        : libhello-jni.so => libs/mips/libhello-jni.so
+22:09:32 **** Incremental Build of configuration Default for project JNITutorial ****
+make all 
+make: *** No rule to make target `all'.  Stop.
+22:09:38 **** Build of configuration Default for project NativeAudio ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+make.exe: *** No rule to make target `jni/native-audio-jni.c', needed by `obj/local/armeabi/objs/native-audio-jni/native-audio-jni.o'.  Stop.
+22:09:38 **** Incremental Build of configuration Default for project TestJNIPrimitive ****
+make all 
+make: *** No rule to make target `all'.  Stop.
+22:43:28 **** Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Compile++ thumb: myjni <= HelloJNI.cpp
+[armeabi] StaticLibrary  : libstdc++.a
+[armeabi] SharedLibrary  : libmyjni.so
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+22:54:47 **** Incremental Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Compile++ thumb: myjni <= HelloJNI.cpp
+[armeabi] SharedLibrary  : libmyjni.so
+C:/android-ndk-r9d/toolchains/arm-linux-androideabi-4.6/prebuilt/windows-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld.exe: C:/android-ndk-r9d/sources/cxx-stl/llvm-libc++/libs/armeabi/libc++_static.a(ios.o): in function std::__1::ios_base::xalloc():/tmp/ndk-andrewhsieh/tmp/build-21097/build-libc++/ndk/sources/cxx-stl/llvm-libc++/libcxx/src/ios.cpp(.text._ZNSt3__18ios_base6xallocEv+0x10): error: undefined reference to '__atomic_fetch_add_4'
+collect2: ld returned 1 exit status
+make.exe: *** [obj/local/armeabi/libmyjni.so] Error 1
+23:09:51 **** Incremental Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+23:25:53 **** Incremental Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Compile++ thumb: myjni <= HelloJNI.cpp
+[armeabi] SharedLibrary  : libmyjni.so
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+23:25:56 **** Incremental Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+20:02:31 **** Build of configuration Default for project AndroidHelloJNI ****
+"C:\\android-ndk-r9d\\ndk-build.cmd" all 
+Android NDK: WARNING: APP_PLATFORM android-18 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
+[armeabi] Install        : libmyjni.so => libs/armeabi/libmyjni.so
+20:59:01 **** Incremental Build of configuration Default for project TestJNIPrimitive ****
+make all 
+make: *** No rule to make target `all'.  Stop.

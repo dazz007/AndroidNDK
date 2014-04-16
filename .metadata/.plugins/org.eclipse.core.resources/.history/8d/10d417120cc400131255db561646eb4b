@@ -1,0 +1,10 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using Cryptopp::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+
+	AutoSeededRandomPool rnd;
+
+}

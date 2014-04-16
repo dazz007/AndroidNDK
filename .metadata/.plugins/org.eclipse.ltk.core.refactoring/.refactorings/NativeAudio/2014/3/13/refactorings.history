@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;NativeAudio/jni/native-audio-jni.c&apos; to &apos;native-audio-jni.cpp&apos;" description="Rename resource &apos;native-audio-jni.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="jni/native-audio-jni.c" name="native-audio-jni.cpp" stamp="1395785255671" updateReferences="true"/>
+</session>

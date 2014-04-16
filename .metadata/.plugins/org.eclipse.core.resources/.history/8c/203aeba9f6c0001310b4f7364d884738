@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include "cryptopp/md5.h"
+#include "cryptopp/sha.h"
+#include "cryptopp/integer.h"
+using namespace std;
+using CryptoPP::Integer;
+
+
+////////////////////////////////////////////////////////////
+class MAC{
+public:
+	static int state;
+	static SecByteBlock privKey;
+	static SecByteBlock pubKey;
+	static DSA::PublicKey signPubKey;
+	static DSA::PrivateKey signPrivKey;
+	static DH dh;
+
+
+
+
+};

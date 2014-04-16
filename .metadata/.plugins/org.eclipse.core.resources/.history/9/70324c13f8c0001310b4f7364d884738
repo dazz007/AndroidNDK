@@ -1,0 +1,5 @@
+MAC(int y) : state(y){
+
+	}
+
+	void doubleState();
