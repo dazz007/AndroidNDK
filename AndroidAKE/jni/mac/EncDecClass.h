@@ -1,7 +1,6 @@
 #pragma once
 #include <utility>
 #include "cryptopp/osrng.h"
-#include <string>
 #include <sstream>
 using CryptoPP::AutoSeededRandomPool;
 

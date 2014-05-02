@@ -7,62 +7,77 @@ public class MutualAuthenticateChip {
 		System.loadLibrary("nativecryptowrapper");
 	}
 	
-	public native void prepare_MAC_CPP();
+	public native void prepareMACCPP();
 
-	public native byte[] get_ephemeralkey_CPP();
-
-	public native void set_ephemeralkey_from_party_CPP(byte [] ephemeralKey);
+	public native byte[] getEphemeralKeyCPP();
 	
-	public native void prepare_encryption_CPP(boolean initiated);
+	public native byte[] showKeyPair();
 	
-	public native byte[] get_encrypt_cert_and_R_CPP();
+	public native byte[] showPrivateKey();
 	
-	public native void set_encryption_from_party_CPP( byte [] encryption );
+	public native void setEphemeralKeyFromPartyCPP(String ephemeralKey);
 	
-	public native boolean verif_certificate_CPP();
+	public native void prepareEncryptionCPP(boolean initiated);
 	
-	public native void compute_session_key_CPP();
+	public native byte[] getEncryptCertAndRCPP();
 	
-	public native byte[] get_session_key_CPP();
+	public native void setEncryptionFromPartyCPP( byte [] encryption );
+	
+	public native boolean verifCertificateCPP();
+	
+	public native void computeSessionKeyCPP();
+	
+	public native byte[] getSessionKeyCPP();
 	
 	public void set_initializator(boolean init){
 		this.initiated = init;
 	}
 	
 	public void prepare_keys_and_cert(){
-		prepare_MAC_CPP();
+		prepareMACCPP();
 	}
 	
 	public byte[] return_ephemeralkey(){
-		return get_ephemeralkey_CPP();
+		return getEphemeralKeyCPP();
 	}
 	
-	public void set_ephemeralkey_from_party(byte [] ephemeralKey){
-		set_ephemeralkey_from_party_CPP(ephemeralKey);
+	public void set_ephemeralkey_from_party(String ephemeralKey){
+		setEphemeralKeyFromPartyCPP(ephemeralKey);
 	}
 	
 	public byte[] get_encrypt_cert_and_R(){
-		return get_encrypt_cert_and_R_CPP();
+		return getEncryptCertAndRCPP();
 	}
 	
 	public void prepare_encryption(boolean initiated){
-		prepare_encryption_CPP(this.initiated);
+		prepareEncryptionCPP(this.initiated);
 	}
 	
 	
 	public void set_encryption_from_party( byte [] encryption ){
-		set_encryption_from_party_CPP(encryption);
+		setEncryptionFromPartyCPP(encryption);
 	}
 	
 	public boolean verif_certificate(){
-		return verif_certificate_CPP();
+		return verifCertificateCPP();
 	}
 	
 	public void compute_session_key(){
-		compute_session_key_CPP();
+		computeSessionKeyCPP();
 	}
 	
 	public void get_session_key(){
-		byte[] sk = get_session_key_CPP();
+		byte[] sk = getSessionKeyCPP();
+	}
+	
+	public byte[] show_key_pair(){
+//		byte[] str = showKeyPair();
+		
+		
+		return showKeyPair();
+	}
+	
+	public byte[] show_private_key(){
+		return showPrivateKey();
 	}
 }

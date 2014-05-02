@@ -1,0 +1,8 @@
+package com.example.androidake;
+
+public class ConverterJava {
+	
+	static String FromByteToString(byte[] data){
+		return new String(data, "UTF-8");
+	}
+}

@@ -1,4 +1,4 @@
-
+#pragma once
 #include <iostream>
 #include "cryptopp/cryptlib.h"
 #include "cryptopp/dsa.h"

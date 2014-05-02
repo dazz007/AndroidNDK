@@ -141,13 +141,16 @@ obj/local/armeabi/objs/mac/mac/MutualAuthenticationChip.o: \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_num_get.c \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_epilog.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h \
+ C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/strstream \
+ C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_strstream.h \
+ jni/mac/Converter.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/string \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_hash.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_hash_fun.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_io.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_io.c \
- jni/mac/KeyGenerator.h jni/cryptopp/cryptlib.h jni/cryptopp/config.h \
- jni/cryptopp/stdcpp.h \
+ jni/cryptopp/secblock.h jni/cryptopp/config.h jni/cryptopp/misc.h \
+ jni/cryptopp/cryptlib.h jni/cryptopp/stdcpp.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/assert.h \
  C:/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/../include/assert.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/memory \
@@ -173,8 +176,6 @@ obj/local/armeabi/objs/mac/mac/MutualAuthenticationChip.o: \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_vector.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_vector.c \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_bvector.h \
- jni/cryptopp/dsa.h jni/cryptopp/gfpcrypt.h jni/cryptopp/pubkey.h \
- jni/cryptopp/modarith.h jni/cryptopp/cryptlib.h jni/cryptopp/misc.h \
  jni/cryptopp/smartptr.h \
  C:/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/byteswap.h \
  C:/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/endian.h \
@@ -182,8 +183,10 @@ obj/local/armeabi/objs/mac/mac/MutualAuthenticationChip.o: \
  C:/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/machine/endian.h \
  jni/cryptopp/integer.h jni/cryptopp/secblock.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/iosfwd \
- jni/cryptopp/algebra.h jni/cryptopp/filters.h jni/cryptopp/simple.h \
- jni/cryptopp/queue.h jni/cryptopp/algparam.h \
+ jni/mac/KeyGenerator.h jni/cryptopp/cryptlib.h jni/cryptopp/dsa.h \
+ jni/cryptopp/gfpcrypt.h jni/cryptopp/pubkey.h jni/cryptopp/modarith.h \
+ jni/cryptopp/integer.h jni/cryptopp/algebra.h jni/cryptopp/filters.h \
+ jni/cryptopp/simple.h jni/cryptopp/queue.h jni/cryptopp/algparam.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/deque \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_deque.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_deque.c \
@@ -191,10 +194,9 @@ obj/local/armeabi/objs/mac/mac/MutualAuthenticationChip.o: \
  jni/cryptopp/modexppc.h jni/cryptopp/sha.h jni/cryptopp/iterhash.h \
  jni/cryptopp/asn.h jni/cryptopp/hmac.h jni/cryptopp/seckey.h \
  jni/cryptopp/osrng.h jni/cryptopp/randpool.h jni/cryptopp/rng.h \
- jni/cryptopp/aes.h jni/cryptopp/rijndael.h jni/cryptopp/integer.h \
- jni/cryptopp/nbtheory.h jni/cryptopp/dh.h jni/cryptopp/dh2.h \
- jni/mac/Hash.h jni/cryptopp/md5.h jni/cryptopp/sha.h \
- jni/mac/EncDecClass.h \
+ jni/cryptopp/aes.h jni/cryptopp/rijndael.h jni/cryptopp/nbtheory.h \
+ jni/cryptopp/dh.h jni/cryptopp/dh2.h jni/mac/Hash.h jni/cryptopp/md5.h \
+ jni/cryptopp/sha.h jni/mac/EncDecClass.h \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/utility \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/sstream \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_sstream.h \
@@ -202,7 +204,7 @@ obj/local/armeabi/objs/mac/mac/MutualAuthenticationChip.o: \
  C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/cstdlib \
  jni/cryptopp/hex.h jni/cryptopp/basecode.h jni/cryptopp/filters.h \
  jni/cryptopp/aes.h jni/cryptopp/ccm.h jni/cryptopp/authenc.h \
- jni/cryptopp/modes.h jni/cryptopp/strciphr.h jni/cryptopp/secblock.h
+ jni/cryptopp/modes.h jni/cryptopp/strciphr.h
 
 jni/mac/MutualAuthenticationChip.h:
 
@@ -488,6 +490,12 @@ C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_epilog.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h:
 
+C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/strstream:
+
+C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_strstream.h:
+
+jni/mac/Converter.h:
+
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/string:
 
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_hash.h:
@@ -498,11 +506,13 @@ C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_io.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_string_io.c:
 
-jni/mac/KeyGenerator.h:
-
-jni/cryptopp/cryptlib.h:
+jni/cryptopp/secblock.h:
 
 jni/cryptopp/config.h:
+
+jni/cryptopp/misc.h:
+
+jni/cryptopp/cryptlib.h:
 
 jni/cryptopp/stdcpp.h:
 
@@ -556,18 +566,6 @@ C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_vector.c:
 
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/stl/_bvector.h:
 
-jni/cryptopp/dsa.h:
-
-jni/cryptopp/gfpcrypt.h:
-
-jni/cryptopp/pubkey.h:
-
-jni/cryptopp/modarith.h:
-
-jni/cryptopp/cryptlib.h:
-
-jni/cryptopp/misc.h:
-
 jni/cryptopp/smartptr.h:
 
 C:/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/byteswap.h:
@@ -583,6 +581,20 @@ jni/cryptopp/integer.h:
 jni/cryptopp/secblock.h:
 
 C:/android-ndk-r9d/sources/cxx-stl/stlport/stlport/iosfwd:
+
+jni/mac/KeyGenerator.h:
+
+jni/cryptopp/cryptlib.h:
+
+jni/cryptopp/dsa.h:
+
+jni/cryptopp/gfpcrypt.h:
+
+jni/cryptopp/pubkey.h:
+
+jni/cryptopp/modarith.h:
+
+jni/cryptopp/integer.h:
 
 jni/cryptopp/algebra.h:
 
@@ -628,8 +640,6 @@ jni/cryptopp/aes.h:
 
 jni/cryptopp/rijndael.h:
 
-jni/cryptopp/integer.h:
-
 jni/cryptopp/nbtheory.h:
 
 jni/cryptopp/dh.h:
@@ -669,5 +679,3 @@ jni/cryptopp/authenc.h:
 jni/cryptopp/modes.h:
 
 jni/cryptopp/strciphr.h:
-
-jni/cryptopp/secblock.h:

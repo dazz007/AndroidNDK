@@ -1,0 +1,70 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using CryptoPP::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+	//Automaticly Seeded Randomness Pool.
+	//This class seeds itself using an operating system provided RNG.
+	privateKey = new SecByteBlock(dh.PrivateKeyLength());
+	publicKey = new SecByteBlock(dh.PublicKeyLength());
+	kg->GenerateStaticKeyPair(rnd, *privateKey, *publicKey);
+
+}
+
+void MutualAuthenticationChip::GenerateEphemeralKeys(){
+	ephemeralPublicKey = new SecByteBlock(kg->EphemeralPrivateKeyLength());
+	ephemeralPrivateKey = new SecByteBlock(kg->EphemeralPublicKeyLength());
+
+	kg->GenerateEphemeralKeyPair(rnd, *ephemeralPrivateKey, *ephemeralPublicKey);
+
+//    Integer a = Integer(this->rnd, this->keySize); //random a
+//    byte *aEncoded;
+//    a.Encode(aEncoded, this->keySize); //change Integer to byte
+//    this->ephemeralPrivateKey = Hash::getSHA1(aEncoded, this->keySize); //ha = H(a)
+//    CryptoPP::Integer exponent(this->ephemeralPrivateKey, keySize);
+//    CryptoPP::Integer cA = a_exp_b_mod_c(this->g, exponent, this->p);   //ca = g^H(a)
+//    cA.Encode(this->ephemeralPublicKey, keySize);
+}
+
+byte * MutualAuthenticationChip::GetEphemeralPublicKey(){
+	return *ephemeralPublicKey;
+}
+
+void MutualAuthenticationChip::dupa(){
+
+}
+
+int MutualAuthenticationChip::GetKeySize(){
+	return keySize;
+}
+
+std::string MutualAuthenticationChip::ShowPublicKey(){
+	string s = SecByteBlockToString(*publicKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::ShowPrivateKey(){
+	string s = SecByteBlockToString(*privateKey);
+
+	//Integer a;
+
+	//a.Decode(privateKey->BytePtr(), privateKey->SizeInBytes());
+	////cout << "Shared secret: " << std::hex << a << endl;
+
+	//std::ostrstream oss;
+	//oss << std::hex << a;
+	//std::string s(oss.str());
+	//s = s.substr(0, 2*privateKey->SizeInBytes()+1); //Do zapamiêtania. d³ugoœæ stringa z s wynosi 2*d³ugoœæ w bytach plus 1.
+	return s;
+}
+
+std::string MutualAuthenticationChip::SecByteBlockToString(SecByteBlock data){
+	Integer a;
+	a.Decode(data.BytePtr(), data.SizeInBytes());
+	std::ostrstream oss;
+	oss << std::hex << a;
+	std::string s(oss.str());
+	s = s.substr(0, 2*data.SizeInBytes()+1); //Do zapamiêtania. d³ugoœæ stringa z s wynosi 2*d³ugoœæ w bytach plus 1.
+	return s;
+}

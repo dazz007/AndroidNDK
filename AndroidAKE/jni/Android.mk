@@ -154,6 +154,7 @@ LOCAL_CFLAGS := -fexceptions -frtti
 LOCAL_SRC_FILES :=  \
 mac/EncDecClass.cpp \
 mac/Hash.cpp \
+mac/Converter.cpp \
 mac/KeyGenerator.cpp \
 mac/SchnorrSignature.cpp \
 mac/MutualAuthenticationChip.cpp 

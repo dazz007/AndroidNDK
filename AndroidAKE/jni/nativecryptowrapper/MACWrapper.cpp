@@ -3,42 +3,58 @@
 
 static MutualAuthenticationChip mac(10);
 
-JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepare_1MAC_1CPP
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepareMACCPP
   (JNIEnv *env, jobject thisObj){
-	mac.dupa();
 	mac.GenerateKeyPairs();
 	mac.GenerateEphemeralKeys();
 };
 
 
-JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_get_1ephemeralkey_1CPP
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getEphemeralKeyCPP
   (JNIEnv *env, jobject thisObj){
 
-	int length = mac.GetKeySize();
-	byte * ephemeralKey = mac.GetEphemeralPublicKey();
+	string ephemKey = mac.GetEphemeralPublicKey();
 
-	jbyteArray ephemeralkey_byte = env->NewByteArray(length);
-	env->SetByteArrayRegion(ephemeralkey_byte, 0, length, (jbyte*)ephemeralKey);
+	jbyteArray returns = env->NewByteArray(ephemKey.length());
+	env->SetByteArrayRegion(returns, 0, ephemKey.length(), (jbyte*)ephemKey.c_str());
+	return returns;
+};
 
-	return ephemeralkey_byte;
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_showKeyPair(JNIEnv *env, jobject thisObj){
+
+		string publicKey = mac.ShowPublicKey();
+
+		jbyteArray returns = env->NewByteArray(publicKey.length());
+		env->SetByteArrayRegion(returns, 0, publicKey.length(), (jbyte*)publicKey.c_str());
+		return returns;
+};
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_showPrivateKey(JNIEnv *env, jobject thisObj){
+		string privatekey = mac.ShowPrivateKey();
+
+		jbyteArray returns = env->NewByteArray(privatekey.length());
+		env->SetByteArrayRegion(returns, 0, privatekey.length(), (jbyte*)privatekey.c_str());
+		return returns;
+};
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_setEphemeralKeyFromPartyCPP
+  (JNIEnv *env, jobject thisObj, jstring ephemeralkey_byte){
+	jsize length = env->GetStringLength(ephemeralkey_byte);
+
+	const char *inCStr = env->GetStringUTFChars(ephemeralkey_byte, NULL);
+	string s(inCStr, length);
+	mac.SetEphemeralPublicKeyAnotherParty(s);
 };
 
 
-JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_set_1ephemeralkey_1from_1party_1CPP
-  (JNIEnv *env, jobject thisObj, jbyteArray ephemeralkey_byte){
-
-
-};
-
-
-JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepare_1encryption_1CPP
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepareEncryptionCPP
   (JNIEnv *env, jobject thisObj, jboolean){
 
 
 };
 
 
-JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_get_1encrypt_1cert_1and_1R_1CPP
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getEncryptCertAndRCPP
   (JNIEnv *env, jobject thisObj){
 	jbyteArray encryption_byte;
 
@@ -47,14 +63,14 @@ JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_
 };
 
 
-JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_set_1encryption_1from_1party_1CPP
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_setEncryptionFromPartyCPP
   (JNIEnv *env, jobject thisObj, jbyteArray encryption_byte){
 
 
 };
 
 
-JNIEXPORT jboolean JNICALL Java_com_example_androidake_MutualAuthenticateChip_verif_1certificate_1CPP
+JNIEXPORT jboolean JNICALL Java_com_example_androidake_MutualAuthenticateChip_verifCertificateCPP
   (JNIEnv *env, jobject thisObj){
 	jboolean verif = true;
 
@@ -62,14 +78,14 @@ JNIEXPORT jboolean JNICALL Java_com_example_androidake_MutualAuthenticateChip_ve
 };
 
 
-JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_compute_1session_1key_1CPP
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_computeSessionKeyCPP
   (JNIEnv *env, jobject thisObj){
 
 
 };
 
 
-JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_get_1session_1key_1CPP
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getSessionKeyCPP
   (JNIEnv *env, jobject thisObj){
 
 

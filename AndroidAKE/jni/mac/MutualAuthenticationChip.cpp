@@ -8,25 +8,21 @@ void MutualAuthenticationChip::GenerateKeyPairs(){
 	//This class seeds itself using an operating system provided RNG.
 	privateKey = new SecByteBlock(dh.PrivateKeyLength());
 	publicKey = new SecByteBlock(dh.PublicKeyLength());
-	dh.GenerateKeyPair(this->rnd, *privateKey, *publicKey);
+	kg->GenerateStaticKeyPair(rnd, *privateKey, *publicKey);
 
 }
 
 void MutualAuthenticationChip::GenerateEphemeralKeys(){
+	ephemeralPublicKey = new SecByteBlock(kg->EphemeralPrivateKeyLength());
+	ephemeralPrivateKey = new SecByteBlock(kg->EphemeralPublicKeyLength());
+
 	kg->GenerateEphemeralKeyPair(rnd, *ephemeralPrivateKey, *ephemeralPublicKey);
 
-//    Integer a = Integer(this->rnd, this->keySize); //random a
-//    byte *aEncoded;
-//    a.Encode(aEncoded, this->keySize); //change Integer to byte
-//    this->ephemeralPrivateKey = Hash::getSHA1(aEncoded, this->keySize); //ha = H(a)
-//    CryptoPP::Integer exponent(this->ephemeralPrivateKey, keySize);
-//    CryptoPP::Integer cA = a_exp_b_mod_c(this->g, exponent, this->p);   //ca = g^H(a)
-//    cA.Encode(this->ephemeralPublicKey, keySize);
 }
 
-byte * MutualAuthenticationChip::GetEphemeralPublicKey(){
-	return *ephemeralPublicKey;
-}
+//byte * MutualAuthenticationChip::GetEphemeralPublicKey(){
+//	return *ephemeralPublicKey;
+//}
 
 void MutualAuthenticationChip::dupa(){
 
@@ -35,3 +31,23 @@ void MutualAuthenticationChip::dupa(){
 int MutualAuthenticationChip::GetKeySize(){
 	return keySize;
 }
+
+std::string MutualAuthenticationChip::ShowPublicKey(){
+	string s = Converter::SecByteBlockToString(*publicKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::ShowPrivateKey(){
+	string s = Converter::SecByteBlockToString(*privateKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::GetEphemeralPublicKey(){
+	return Converter::SecByteBlockToString(*ephemeralPublicKey);
+}
+
+void MutualAuthenticationChip::SetEphemeralPublicKeyAnotherParty(std::string data){
+	ephemeralPublicKeyAnotherParty = new SecByteBlock(kg->EphemeralPrivateKeyLength());
+	Converter::FromStringToSecByteblock(data, ephemeralPublicKey, kg->EphemeralPublicKeyLength());
+}
+

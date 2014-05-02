@@ -1,6 +1,0 @@
-#include "MAC.h";
-
-	void MAC::doubleState(){
-
-
-	}

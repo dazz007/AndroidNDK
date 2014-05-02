@@ -1,0 +1,50 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using CryptoPP::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+	//Automaticly Seeded Randomness Pool.
+	//This class seeds itself using an operating system provided RNG.
+	privateKey = new SecByteBlock(dh.PrivateKeyLength());
+	publicKey = new SecByteBlock(dh.PublicKeyLength());
+	kg->GenerateStaticKeyPair(rnd, *privateKey, *publicKey);
+
+}
+
+void MutualAuthenticationChip::GenerateEphemeralKeys(){
+	ephemeralPublicKey = new SecByteBlock(kg->EphemeralPrivateKeyLength());
+	ephemeralPrivateKey = new SecByteBlock(kg->EphemeralPublicKeyLength());
+
+	kg->GenerateEphemeralKeyPair(rnd, *ephemeralPrivateKey, *ephemeralPublicKey);
+
+}
+
+std::string MutualAuthenticationChip::GetEphemeralPublicKey(){
+	std::string s = Converter::SecByteBlockToString(*ephemeralPublicKey);
+	Converter::FromStringToSecByteblock(s, ephemeralPublicKey, kg->EphemeralPublicKeyLength());
+	return Converter::SecByteBlockToString(*ephemeralPublicKey);
+}
+
+void MutualAuthenticationChip::dupa(){
+
+}
+
+int MutualAuthenticationChip::GetKeySize(){
+	return keySize;
+}
+
+std::string MutualAuthenticationChip::ShowPublicKey(){
+	string s = Converter::SecByteBlockToString(*publicKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::ShowPrivateKey(){
+	string s = Converter::SecByteBlockToString(*privateKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::GetEphemeralPublicKey(){
+	return SecByteBlockToString(*ephemeralPublicKey);
+}
+

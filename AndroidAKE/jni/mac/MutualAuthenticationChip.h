@@ -1,5 +1,7 @@
+#pragma once
 #include <iostream>
-#include <string>
+#include <strstream>
+#include "mac/Converter.h"
 #include "mac/KeyGenerator.h"
 //#include "mac/Hash.h"
 #include "mac/EncDecClass.h"
@@ -24,10 +26,10 @@ private:
 	SecByteBlock * privateKey;
 	SecByteBlock * ephemeralPublicKey;
 	SecByteBlock * ephemeralPrivateKey;
+	SecByteBlock * ephemeralPublicKeyAnotherParty;
 	AutoSeededRandomPool rnd;
 	DH dh;
-	KeyGenerator *kg;
-
+	KeyGenerator * kg;
 public:
 	MutualAuthenticationChip(int h): help(h) {
 		Integer p("0xB10B8F96A080E01DDE92DE5EAE5D54EC52C99FBCFB06A3C6"
@@ -51,8 +53,7 @@ public:
 
 		dh.AccessGroupParameters().Initialize(this->p, this->q, this->g);
 
-		KeyGenerator kg2 = KeyGenerator(dh);
-		kg = &kg2;
+		kg = new KeyGenerator(dh);
 		keySize = Hash::size;
 	}
 
@@ -66,6 +67,9 @@ public:
     void GenerateKeyPairs();
     void GenerateEphemeralKeys();
     void dupa();
-    byte * GetEphemeralPublicKey();
+    string GetEphemeralPublicKey();
+    string ShowPublicKey();
+    string ShowPrivateKey();
     int GetKeySize();
+    void SetEphemeralPublicKeyAnotherParty(std::string );
 };

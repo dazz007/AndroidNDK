@@ -1,0 +1,94 @@
+#include "include/MACWrapper.h"
+#include "mac/MutualAuthenticationChip.h"
+
+static MutualAuthenticationChip mac(10);
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepareMACCPP
+  (JNIEnv *env, jobject thisObj){
+	mac.GenerateKeyPairs();
+	mac.GenerateEphemeralKeys();
+};
+
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getEphemeralKeyCPP
+  (JNIEnv *env, jobject thisObj){
+
+	string ephemKey = mac.GetEphemeralPublicKey();
+
+//	int length = mac.GetKeySize();
+//	byte * ephemeralKey = mac.GetEphemeralPublicKey();
+//
+//	jbyteArray ephemeralkey_byte = env->NewByteArray(length);
+//	env->SetByteArrayRegion(ephemeralkey_byte, 0, length, (jbyte*)ephemeralKey);
+	jbyteArray returns = env->NewByteArray(publicKey.length());
+	env->SetByteArrayRegion(returns, 0, publicKey.length(), (jbyte*)publicKey.c_str());
+	return returns;
+};
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_showKeyPair(JNIEnv *env, jobject thisObj){
+
+		string publicKey = mac.ShowPublicKey();
+
+		jbyteArray returns = env->NewByteArray(publicKey.length());
+		env->SetByteArrayRegion(returns, 0, publicKey.length(), (jbyte*)publicKey.c_str());
+		return returns;
+};
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_showPrivateKey(JNIEnv *env, jobject thisObj){
+		string privatekey = mac.ShowPrivateKey();
+
+		jbyteArray returns = env->NewByteArray(privatekey.length());
+		env->SetByteArrayRegion(returns, 0, privatekey.length(), (jbyte*)privatekey.c_str());
+		return returns;
+};
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_setEphemeralKeyFromPartyCPP
+  (JNIEnv *env, jobject thisObj, jbyteArray ephemeralkey_byte){
+
+
+};
+
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_prepareEncryptionCPP
+  (JNIEnv *env, jobject thisObj, jboolean){
+
+
+};
+
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getEncryptCertAndRCPP
+  (JNIEnv *env, jobject thisObj){
+	jbyteArray encryption_byte;
+
+	return encryption_byte;
+
+};
+
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_setEncryptionFromPartyCPP
+  (JNIEnv *env, jobject thisObj, jbyteArray encryption_byte){
+
+
+};
+
+
+JNIEXPORT jboolean JNICALL Java_com_example_androidake_MutualAuthenticateChip_verifCertificateCPP
+  (JNIEnv *env, jobject thisObj){
+	jboolean verif = true;
+
+	return verif;
+};
+
+
+JNIEXPORT void JNICALL Java_com_example_androidake_MutualAuthenticateChip_computeSessionKeyCPP
+  (JNIEnv *env, jobject thisObj){
+
+
+};
+
+
+JNIEXPORT jbyteArray JNICALL Java_com_example_androidake_MutualAuthenticateChip_getSessionKeyCPP
+  (JNIEnv *env, jobject thisObj){
+
+
+};

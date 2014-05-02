@@ -1,0 +1,54 @@
+#include "MutualAuthenticationChip.h"
+
+#include "cryptopp/dh.h"
+using CryptoPP::DH;
+
+void MutualAuthenticationChip::GenerateKeyPairs(){
+	//Automaticly Seeded Randomness Pool.
+	//This class seeds itself using an operating system provided RNG.
+	privateKey = new SecByteBlock(dh.PrivateKeyLength());
+	publicKey = new SecByteBlock(dh.PublicKeyLength());
+	kg->GenerateStaticKeyPair(rnd, *privateKey, *publicKey);
+
+}
+
+void MutualAuthenticationChip::GenerateEphemeralKeys(){
+	ephemeralPublicKey = new SecByteBlock(kg->EphemeralPrivateKeyLength());
+	ephemeralPrivateKey = new SecByteBlock(kg->EphemeralPublicKeyLength());
+
+	kg->GenerateEphemeralKeyPair(rnd, *ephemeralPrivateKey, *ephemeralPublicKey);
+
+}
+
+byte * MutualAuthenticationChip::GetEphemeralPublicKey(){
+	return *ephemeralPublicKey;
+}
+
+void MutualAuthenticationChip::dupa(){
+
+}
+
+int MutualAuthenticationChip::GetKeySize(){
+	return keySize;
+}
+
+std::string MutualAuthenticationChip::ShowPublicKey(){
+	string s = SecByteBlockToString(*publicKey);
+	return s;
+}
+
+std::string MutualAuthenticationChip::ShowPrivateKey(){
+	string s = SecByteBlockToString(*privateKey);
+
+	return s;
+}
+
+std::string MutualAuthenticationChip::SecByteBlockToString(SecByteBlock data){
+	Integer a;
+	a.Decode(data.BytePtr(), data.SizeInBytes());
+	std::ostrstream oss;
+	oss << std::hex << a;
+	std::string s(oss.str());
+	s = s.substr(0, 2*data.SizeInBytes()+1); //Do zapamiêtania. d³ugoœæ stringa z s wynosi 2*d³ugoœæ w bytach plus 1.
+	return s;
+}

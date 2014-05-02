@@ -1,3 +1,0 @@
-#include "MAC.h";
-
-	void doubleState();

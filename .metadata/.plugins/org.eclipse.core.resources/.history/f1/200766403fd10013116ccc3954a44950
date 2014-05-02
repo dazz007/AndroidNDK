@@ -1,0 +1,9 @@
+package com.example.androidake;
+
+public class ConverterJava {
+	
+	static String FromByteToString(byte[] data){
+		String s = data.toString();
+		return s;
+	}
+}
